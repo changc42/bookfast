@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 
 export default class search extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class search extends Component {
           onChange={this.handleChange}
           placeholder="Search for your fav book"
         ></input>
-        <button onClick={this.handleClick}>Search</button>
+        <Link to='/bookList' onClick={this.handleClick}>Search</Link>
       </div>
     );
   }
