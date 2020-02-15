@@ -1,5 +1,6 @@
+const axios = require("axios");
+const util = require("util");
 const express = require("express");
-
 const app = express();
 
 app.get("/", (req, res) => {
@@ -8,14 +9,17 @@ app.get("/", (req, res) => {
 
 app.get("/test", async (req, res) => {
   let response = await axios.get(
-    "https://www.googleapis.com/books/v1/volumes?q=harry"
+    "https://www.googleapis.com/books/v1/volumes?q=harry+potter"
   );
-  res.send("lol");
+  res.send(response.data);
 });
 
-app.get("/sending", (req, res) => {
-  res.send("lol");
-});
+// app.get("/test2", (req, res) => {
+//   let response = axios;
+// });
+// app.get("/sending", (req, res) => {
+//   res.send("lol");
+// });
 
 const PORT = 5000;
 
