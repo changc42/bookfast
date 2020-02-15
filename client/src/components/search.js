@@ -16,9 +16,7 @@ export default class search extends Component {
   };
 
   handleClick = e => {
-    console.log("in handleclick");
     this.props.apiCall(this.state.search);
-    console.log("at end of handleCLick");
   };
 
   render() {

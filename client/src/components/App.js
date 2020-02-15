@@ -20,7 +20,6 @@ export default class App extends Component {
   };
 
   makeAPICall = searchTerm => {
-    console.log("in makeApiCall");
     let URL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyAh3h9-vOZETzJ9sAli8dbZbjIRcr87R40`;
     fetch(URL)
       .then(res => res.json())
