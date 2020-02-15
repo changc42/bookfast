@@ -20,14 +20,12 @@ export default class App extends Component {
   };
 
   makeAPICall = searchTerm => {
-    let URL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}+inauthor:keyes`;
-    console.log(URL);
+    console.log("in makeApiCall");
+    let URL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyAh3h9-vOZETzJ9sAli8dbZbjIRcr87R40`;
     fetch(URL)
       .then(res => res.json())
       .then(data => this.setState({ data }));
   };
-
-  makeAPICall = searchTerm => {};
 
   render() {
     console.log(this.state.data);
