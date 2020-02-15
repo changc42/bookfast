@@ -4,6 +4,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./nav";
 import Search from "./search";
 import BookShelf from "./BookShelf";
+import BookList from "./BookList"
+
+
 import BookSummaries from "./BookDetails";
 
 export default class App extends Component {
@@ -28,7 +31,8 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.state.data);
+    // console.log(this.state.data);
+     console.log(this.state.data.items);
     return (
       <BrowserRouter>
         <div>
@@ -43,6 +47,9 @@ export default class App extends Component {
                 getSearchResult={this.getSearchResult}
               />
             </div>
+          </Route>
+          <Route exact path="/bookList">
+            <BookList bookData={this.state.data.items} />
           </Route>
           <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
