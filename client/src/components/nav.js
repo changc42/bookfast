@@ -7,7 +7,12 @@ export default class Nav extends Component {
         <a class="navbar-brand" href="/">
           BookFast
         </a>
-        <a href="/bookshelf">BookShelf</a>
+        <a className="nav-link" href="/bookshelf">
+          BookShelf
+        </a>
+        <a className="nav-link" href="/api">
+          test
+        </a>
       </nav>
     );
   }
