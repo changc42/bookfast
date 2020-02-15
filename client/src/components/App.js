@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./nav";
 import Search from "./search";
 import BookShelf from "./BookShelf";
+import BookSummaries from "./BookDetails";
 
 export default class App extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ export default class App extends Component {
               />
             </div>
           </Route>
+          <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
       </BrowserRouter>
     );
