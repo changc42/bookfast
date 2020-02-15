@@ -7,6 +7,7 @@ import BookShelf from "./BookShelf";
 import BookList from "./BookList"
 
 
+import BookSummaries from "./BookDetails";
 
 export default class App extends Component {
   constructor(props) {
@@ -30,8 +31,8 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.state.data);
-    console.log(this.state.data.items);
+    // console.log(this.state.data);
+     console.log(this.state.data.items);
     return (
       <BrowserRouter>
         <div>
@@ -50,6 +51,7 @@ export default class App extends Component {
           <Route exact path="/bookList">
             <BookList bookData={this.state.data.items} />
           </Route>
+          <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
       </BrowserRouter>
     );
