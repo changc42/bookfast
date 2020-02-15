@@ -5,6 +5,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
 require("./models/User");
+require("./models/Summary");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
+require("./routes/summaryRoutes")(app);
 require("./routes/authRoutes")(app);
 app.get("/api/books", async (req, res) => {
   let response = await axios.get(
