@@ -1,5 +1,4 @@
 const axios = require("axios");
-const util = require("util");
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
@@ -8,13 +7,26 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI,);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error"));
+db.once("open", function() {
+  console.log("connected to mongoDB");
+});
 
 const app = express();
 
+app.use(passport.initialize());
+app.use(passport.session());
 
-
-
+// routes
+require("./routes/authRoutes")(app);
+app.get("/api/books", async (req, res) => {
+  let response = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes"
+  );
+  res.send(response.data);
+});
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -24,11 +36,6 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-// routes
-require("./routes/authRoutes")(app);
-
 
 const PORT = process.env.PORT || 5000;
 
