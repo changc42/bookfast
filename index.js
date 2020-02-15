@@ -8,9 +8,12 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI,);
 
 const app = express();
+
+
+
 
 app.use(
   cookieSession({
@@ -22,8 +25,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // routes
 require("./routes/authRoutes")(app);
+
 
 const PORT = process.env.PORT || 5000;
 
