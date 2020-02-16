@@ -9,39 +9,21 @@ export default class BookList extends Component {
 
     // check to see its not empty
     if(this.props.bookData) {
-        console.log(this.props.bookData[0].volumeInfo.imageLinks)
+        console.log(typeof(this.props.bookData))
+    //     console.log(this.props.bookData[0].volumeInfo.imageLinks)
         vol = this.props.bookData.map(item => {
             return <li>{item.volumeInfo}</li>
        })
-       author = this.props.bookData.map(item => {
-            return <li>{item.volumeInfo.authors[0]}</li>
-        })
-        imgLink = this.props.bookData.map(item => {
-            return <li>{item.volumeInfo.imageLinks.thumbnail}</li>
-        })
+    //    author = this.props.bookData.map(item => {
+    //         return <li>{item.volumeInfo.authors[0]}</li>
+    //     })
+    //     imgLink = this.props.bookData.map(item => {
+    //         return <li>{item.volumeInfo.imageLinks.thumbnail}</li>
+    //     })
 
         return (
-            <div>
-                    
-            <ul>
-                
-            {console.log(vol)}
-                {console.log(vol[0].props.children.title)}
-                {/* {author}
-                <img src={this.props.bookData.map(item => {
-                    item.imageLinks.thumbnail}
-                )} />
-                if({vol.imageLinks}){
-                    <img src={vol.imageLinks.smallThumbnail} />
-                } */}
-                
-                
-            </ul>
-                
-    
-    
-            </div>
-            
+            console.log(vol)
+        //    {vol.forEach(e => console.log(e.imageLinks.thumbnail))}
             );
     }else {
         return <h1>Nothing</h1>
