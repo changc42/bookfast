@@ -7,8 +7,9 @@ import Search from "./Search";
 import BookShelf from "./BookShelf";
 import BookList from "./BookList";
 import SearchFunc from "./SearchFunc";
+import LoginConfirmation from "./LoginConfirmation";
 
-import BookSummaries from "./BookDetails";
+import BookSummaries from "./IndividualBook";
 
 export default class App extends Component {
   constructor(props) {
@@ -54,18 +55,35 @@ export default class App extends Component {
             exact
             path="/"
             render={props => (
-              <SearchFunc
+              <div className="container">
+                <SearchFunc
+                  {...props}
+                  apiCall={this.makeAPICall2}
+                  updateSearchField={this.updateSearchField}
+                  search={this.state.search}
+                />
+              </div>
+            )}
+          />
+
+          <Route
+            exact
+            path="/loginConfirmation"
+            component={LoginConfirmation}
+          />
+
+          <Route
+            exact
+            path="/bookList"
+            render={props => (
+              <BookList
                 {...props}
+                data={this.state.data}
                 apiCall={this.makeAPICall2}
                 updateSearchField={this.updateSearchField}
                 search={this.state.search}
               />
             )}
-          />
-          <Route
-            exact
-            path="/bookList"
-            render={props => <BookList {...props} bookData={this.state.data} />}
           />
           <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>

@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class Nav extends Component {
+  state = {
+    isLoggedIn: false
+  };
+  async componentDidMount() {
+    let user = axios.get("/auth/currentUser");
+    if (user) this.setState({ isLoggedIn: true });
+  }
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,8 +18,8 @@ export default class Nav extends Component {
         <a className="nav-link" href="/bookshelf">
           BookShelf
         </a>
-        <a className="nav-link" href="/auth/google">
-          test
+        <a className="nav-link right" href="/auth/google">
+          Login
         </a>
       </nav>
     );

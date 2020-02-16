@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Summary from "./Summary";
 
-export default class BookSummaries extends Component {
+export default class BookDetails extends Component {
   state = {
     isLoaded: false,
     isURLValid: false,
@@ -17,7 +17,6 @@ export default class BookSummaries extends Component {
     let response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${this.props.match.params.id}&key=AIzaSyAh3h9-vOZETzJ9sAli8dbZbjIRcr87R40`
     );
-    console.log(response.data);
     if (response.data.items) {
       let {
         title,
