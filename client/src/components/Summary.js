@@ -1,14 +1,28 @@
 import React, { Component } from "react";
+import CKEditor from 'ckeditor4-react'
 
-export default class Summary extends Component {
-  static defaultProps = {
-    ISBN: "default isbn"
-  };
+
+
+class Summary extends Component {
+  
+
+  editorStyles = {
+    width: '80%',
+    margin: 'auto'
+  }
+
+  textStyles = {
+    textAlign: 'center'
+  }
+
   render() {
     return (
-      <div>
-        <h1>summaries here</h1>
+      <div styles={this.editorStyles}>
+        <h1 style={this.textStyles}>Write a Summary about the book</h1>
+        <CKEditor style={this.editorStyles} data=""></CKEditor>
       </div>
     );
   }
 }
+
+export default Summary;
