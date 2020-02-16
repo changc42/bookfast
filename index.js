@@ -17,6 +17,12 @@ db.once("open", function() {
 
 const app = express();
 
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -29,15 +35,6 @@ app.get("/api/books", async (req, res) => {
   );
   res.send(response.data);
 });
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 const PORT = process.env.PORT || 5000;
 

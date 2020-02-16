@@ -8,6 +8,11 @@ module.exports = app => {
     })
   );
 
+  app.get("/auth/currentUser", (req, res) => {
+    console.log(req.user);
+    res.send(req.user);
+  });
+
   app.get(
     "/auth/google/callback",
     passport.authenticate("google"),

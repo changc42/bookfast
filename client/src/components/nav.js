@@ -10,7 +10,7 @@ export default class Nav extends Component {
         <a className="nav-link" href="/bookshelf">
           BookShelf
         </a>
-        <a className="nav-link" href="/api">
+        <a className="nav-link" href="/auth/google">
           test
         </a>
       </nav>

@@ -5,8 +5,8 @@ const Summary = mongoose.model("summary");
 module.exports = app => {
   app.get("/api/createSummary", (req, res) => {
     new Summary({
-      userID: "realUser",
-      text: "big chungus book"
+      userID: req.user.id,
+      text: "12345"
     }).save(function(err) {
       if (err) return handleError(err);
       else console.log("saved!");
@@ -16,10 +16,8 @@ module.exports = app => {
 
   app.get("/api/getUserSummaries", async (req, res) => {
     console.log(req.user || "not logged in");
-    // const searchResults = await Summary.find({ userID: "fakeUser" }).select({
-    //   text: false
-    // });
-    // console.log(searchResults);
+    const searchResults = await Summary.find({ userID: req.user.id });
+    console.log(searchResults);
     res.send("finished searching");
   });
 };
