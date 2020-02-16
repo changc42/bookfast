@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import axios from "axios";
 import Summary from "./Summary";
 
-export default class BookSummaries extends Component {
+export default class BookDetails extends Component {
   state = {
     isLoaded: false,
-    isURLValid: false
+    isURLValid: false,
+    isMinimized: true
   };
+
+  handleClick = this.handleClick.bind(this);
+  handleClick() {
+    this.setState({ isMinimized: !this.state.isMinimized });
+  }
   async componentDidMount() {
     let response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=isbn:${this.props.match.params.id}&key=AIzaSyAh3h9-vOZETzJ9sAli8dbZbjIRcr87R40`
     );
-    console.log(response.data);
     if (response.data.items) {
       let {
         title,
@@ -70,12 +75,19 @@ export default class BookSummaries extends Component {
                       else return e;
                     })}
                   </h6>
-                  <p class="card-text">{description}</p>
                   <p>IBSN-10: {this.props.match.params.id}</p>
+                  <button
+                    onClick={this.handleClick}
+                    className="btn text-white bg-info"
+                  >
+                    {this.state.isMinimized ? "Expand" : "Collapse"}
+                  </button>
+                  {this.state.isMinimized ? null : (
+                    <p class="card-text">{description || ""}</p>
+                  )}
                 </div>
               </div>
             </div>
-            <Summary ISBN={this.props.match.params.id} />
           </div>
         );
       } else {

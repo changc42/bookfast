@@ -17,12 +17,7 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      let isAuth = req.isAuthenticated();
-      console.log(isAuth)
-      //res.send(isAuth)
-      console.log('after isAuth')
-      res.redirect('http://localhost:3000')
-      //res.send("logged in!");
+      res.redirect("/loginConfirmation");
     }
   );
 
