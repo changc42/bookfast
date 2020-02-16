@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function BookCard(props) {
   let { info } = props;
-  let [isMinimized, setIsMinimized] = useState(false);
+  let [ isMinimized, setIsMinimized ] = useState(false);
 
 
   let buttonStyle = {
