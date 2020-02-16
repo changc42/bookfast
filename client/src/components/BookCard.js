@@ -5,6 +5,10 @@ export default function BookCard(props) {
   let [isMinimized, setIsMinimized] = useState(false);
 
 
+  let buttonStyle = {
+    marginLeft: '2%'
+  }
+
   // checks weather imageLinks is undefined or not
   let thumbnailVaild = () => {
     if(info.imageLinks) {
@@ -28,18 +32,22 @@ export default function BookCard(props) {
         <div class="card" style={{ flex: 3 }}>
           <div class="card-body">
             <h5 class="card-title">{info.title}</h5>
-            <button
+            <button 
               onClick={() => setIsMinimized(!isMinimized)}
               className="btn text-white bg-info"
             >
               {isMinimized ? "Expand" : "Collapse"}
             </button>
+            <button style={buttonStyle} className="btn text-white bg-info">Rating</button>\
+            <button style={buttonStyle} className="btn text-white bg-info">Summary</button>
             {isMinimized ? (
               ""
             ) : (
               <p class="card-text">{info.description || "no description"}</p>
             )}
           </div>
+
+
         </div>
       </div>
     );
