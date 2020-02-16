@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 
 export default function BookCard(props) {
   let { info } = props;
@@ -39,7 +40,8 @@ export default function BookCard(props) {
               {isMinimized ? "Expand" : "Collapse"}
             </button>
             <button style={buttonStyle} className="btn text-white bg-info">Rating</button>\
-            <button style={buttonStyle} className="btn text-white bg-info">Summary</button>
+            <Link style={buttonStyle} to="/Summary" className="btn text-white bg-info">Summary</Link>
+            
             {isMinimized ? (
               ""
             ) : (
