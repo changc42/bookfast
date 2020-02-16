@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 export default function SearchFunc(props) {
 
   const inputStyle = {
-    marginTop: '40%',
+    margin: 'auto',
+    marginLeft: '10%',
     width: '70%',
     height: '30%',
     padding: '1%',
