@@ -9,9 +9,13 @@ export default function SearchFunc(props) {
     width: '70%',
     height: '30%',
     padding: '1%',
-    border: '1px solid #000'
+    border: '1px solid #000',
+    position: 'relative'
   }
 
+  const linkStyle = {
+    marginTop: '40px'
+  }
 
   return (
     <div>
@@ -26,6 +30,7 @@ export default function SearchFunc(props) {
         placeholder="Search for your fav book"
       ></input>
       <Link
+        style={linkStyle}
         to="/bookList"
         onClick={() => {
           props.apiCall(props.search);
