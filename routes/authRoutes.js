@@ -17,7 +17,12 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.send("logged in!");
+      let isAuth = req.isAuthenticated();
+      console.log(isAuth)
+      //res.send(isAuth)
+      console.log('after isAuth')
+      res.redirect('http://localhost:3000')
+      //res.send("logged in!");
     }
   );
 
@@ -26,7 +31,5 @@ module.exports = app => {
     res.send(req.user);
   });
 
-  app.get("/api/current_user", (req, res) => {
-    res.send(req.user);
-  });
+  
 };
