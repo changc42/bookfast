@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "./nav";
-import Search from "./search";
+import Search from "./Search";
 import BookShelf from "./BookShelf";
 import BookList from "./BookList";
 import SearchFunc from "./SearchFunc";
@@ -61,6 +61,11 @@ export default class App extends Component {
             path="/"
             render={props => (
               <div className="container">
+                <div style={{ textAlign: "center" }}>
+                  <h1>BookFast</h1>
+                  <h2>Search For Your Favorite Book</h2>
+                </div>
+
                 <SearchFunc
                   {...props}
                   apiCall={this.makeAPICall2}
@@ -90,7 +95,7 @@ export default class App extends Component {
               />
             )}
           />
-          
+
           <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
       </BrowserRouter>
