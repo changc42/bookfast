@@ -12,11 +12,11 @@ export default class Nav extends Component {
 
   componentDidMount() {
     fetch('http://localhost:5000/auth/google/callback')
-      .then((response) => response.json())
+         .then((response) => response.json())
       .then((isAuth) => this.setState({ isAuth: isAuth }))
   }
 
-  
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
