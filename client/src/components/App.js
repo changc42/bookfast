@@ -10,6 +10,7 @@ import SearchFunc from "./SearchFunc";
 import LoginConfirmation from "./LoginConfirmation";
 
 import BookSummaries from "./IndividualBook";
+import Summary from "./Summary";
 
 export default class App extends Component {
   constructor(props) {
@@ -51,6 +52,10 @@ export default class App extends Component {
             <BookShelf />
           </Route>
 
+          <Route exact path="/Summary">
+            <Summary />
+          </Route>
+
           <Route
             exact
             path="/"
@@ -85,6 +90,7 @@ export default class App extends Component {
               />
             )}
           />
+          
           <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
       </BrowserRouter>
