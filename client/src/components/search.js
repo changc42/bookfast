@@ -1,24 +1,21 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-export default class search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: ""
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+export default class Search extends Component {
+  static defaultProps = {
+    updateSearchField: () => alert("default updateSearchField"),
+    search: "default"
+  };
 
   handleChange = e => {
     let val = e.target.value;
-    this.setState({ search: val });
-    this.props.getSearchResult(val);
+    this.props.updateSearchField(val);
   };
 
-  handleClick = e => {
+  handleClick = this.handleClick.bind(this);
+  handleClick() {
     this.props.apiCall(this.state.search);
-  };
+  }
 
   render() {
     return (
@@ -26,11 +23,13 @@ export default class search extends Component {
         <input
           name="search"
           type="text"
-          value={this.state.search}
+          value={this.props.search}
           onChange={this.handleChange}
           placeholder="Search for your fav book"
         ></input>
-        <Link to='/bookList' onClick={this.handleClick}>Search</Link>
+        <Link to="/bookList" onClick={this.handleClick}>
+          Search
+        </Link>
       </div>
     );
   }
