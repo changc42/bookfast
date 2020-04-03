@@ -6,8 +6,10 @@ export default class Nav extends Component {
     isLoggedIn: false
   };
   async componentDidMount() {
-    let user = axios.get("/auth/currentUser");
-    if (user) this.setState({ isLoggedIn: true });
+    let response = await axios.get("/auth/currentUser");
+    response.data
+      ? this.setState({ isLoggedIn: true })
+      : this.setState({ isLoggedIn: false });
   }
   render() {
     return (
@@ -18,9 +20,16 @@ export default class Nav extends Component {
         <a className="nav-link" href="/bookshelf">
           BookShelf
         </a>
-        <a className="nav-link right" href="/auth/google">
-          Login
-        </a>
+
+        {this.state.isLoggedIn ? (
+          <a className="nav-link right" href="/api/logout">
+            Logout
+          </a>
+        ) : (
+          <a className="nav-link right" href="/auth/google">
+            Login
+          </a>
+        )}
       </nav>
     );
   }

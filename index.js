@@ -36,7 +36,12 @@ app.get("/api/books", async (req, res) => {
   res.send(response.data);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
+
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
 
 app.listen(PORT, () => {
   console.log(`The server is running on ${PORT}`);

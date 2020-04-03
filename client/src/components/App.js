@@ -61,6 +61,11 @@ export default class App extends Component {
             path="/"
             render={props => (
               <div className="container">
+                <div style={{ textAlign: "center" }}>
+                  <h1>BookFast</h1>
+                  <h2>Search For Your Favorite Book</h2>
+                </div>
+
                 <SearchFunc
                   {...props}
                   apiCall={this.makeAPICall2}
@@ -90,7 +95,7 @@ export default class App extends Component {
               />
             )}
           />
-          
+
           <Route exact path="/bookSummaries/:id" component={BookSummaries} />
         </div>
       </BrowserRouter>
