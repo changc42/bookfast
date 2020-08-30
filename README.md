@@ -1,25 +1,49 @@
-# bookfast
-Inspiration
-My brother has dyslexia, and I love reading. He would always want to know what my book was about. I thought about how there are people with dyslexia who would have a very difficult time enjoying books, so we thought of BookFast.
+<h1 align="center">Welcome to BookFast   👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0  -blue.svg?cacheSeconds=2592000" />
+  <a href="Built With" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
+  </a>
+</p>
 
-What it does
-BookFast is a social platform where readers can post summaries of each chapter in a book. There are other features such as a bookShelf, where users can store/bookmark their favorite books. Users can filter summaries by book or by user. Summaries can be upvoted or downvoted so the most popular one is displayed.
+> Inspiration My brother has dyslexia, and I love reading. He would always want to know what my book was about. I thought about how there are people with dyslexia who would have a very difficult time enjoying books, so we thought of BookFast.
 
-How we built it
-We used the MERN stack to build this. Passport handles authentication. The googleBooks API handles search queries. MongoDB stores user accounts and associated info. React is used on the front end. There server is run using node.
+### 🏠 [Homepage](Challenges we ran into There were some parts of the project we thought would be easy to implement and fly through, as we have done them on previous projects. However, we underestimated the complexity of some of these areas such as authentication, React router caveats, and converting class complements to functional components.)
 
-Challenges we ran into
-There were some parts of the project we thought would be easy to implement and fly through, as we have done them on previous projects. However, we underestimated the complexity of some of these areas such as authentication, React router caveats, and converting class complements to functional components.
+### ✨ [Demo](What's next for bookfast We plan to implement some of the unfinished features and refactor some of the sloppy, rushed code.)
 
-Coding for long periods of time on a few hours of sleep goes downhill quickly. Under the pressure to finish the project, we tried to put sleep as a second priority, but this really backfired on us when our productivity greatly decreased towards the end of the hackathon.
+## Install
 
-Accomplishments that we're proud of
-We did not implement all of the features we planned on implementing, but for the time span given, we implemented a lot! Before, we've only done projects using the MERN stack under the guidance of online courses, but we are able to create a full stack project by ourselves now!
+```sh
+npm install
+```
 
-What we learned
-We learned we have plenty of room to improve technically speaking. We also learned we are quite capable with building a basic fullstack application! We already knew sleep deprivation is a killer, but it's easy to forget in an environment like a hackathon.
+## Usage
 
-What's next for bookfast
-We plan to implement some of the unfinished features and refactor some of the sloppy, rushed code.
+```sh
+npm run start
+```
 
-Built With
+## Run tests
+
+```sh
+npm run test
+```
+
+## Author
+
+👤 **Rocky Singh and Caleb Chang  **
+
+* Website: https://intense-ravine-13597.herokuapp.com/
+* Github: [@rockysingh3 and changc42  ](https://github.com/rockysingh3 and changc42  )
+* LinkedIn: [@https:\/\/www.linkedin.com\/in\/rocky-singh-b6407010b\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/rocky-singh-b6407010b\/)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
