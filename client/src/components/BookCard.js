@@ -31,14 +31,18 @@ export default function BookCard(props) {
         <div class="card" style={{ flex: 3 }}>
           <div class="card-body">
             <h5 class="card-title">{info.title}</h5>
-            <h6 className="card-subtitle">
-              by{" "}
-              {info.authors.map(e => {
-                if (info.authors.indexOf(e) != info.authors.length - 1)
-                  return e + ", ";
-                else return e;
-              })}
-            </h6>
+            {info.authors ? (
+              <h6 className="card-subtitle">
+                by{" "}
+                {info.authors.map(e => {
+                  if (info.authors.indexOf(e) != info.authors.length - 1)
+                    return e + ", ";
+                  else return e;
+                })}
+              </h6>
+            ) : (
+              ""
+            )}
             <button
               onClick={() => setIsMinimized(!isMinimized)}
               className="btn text-white bg-info"
