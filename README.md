@@ -40,10 +40,3 @@ npm run test
 * Website: https://intense-ravine-13597.herokuapp.com/
 * Github: [@rockysingh3 and changc42  ](https://github.com/rockysingh3 and changc42  )
 * LinkedIn: [@https:\/\/www.linkedin.com\/in\/rocky-singh-b6407010b\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/rocky-singh-b6407010b\/)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
